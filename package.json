@@ -1,6 +1,6 @@
 {
   "name": "payle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Payle API wrapper",
   "main": "dist/index.js",
   "types": "src/types/index.d.ts",
@@ -21,6 +21,10 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/node": "^20.12.8",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5",
     "typescript": "^5.4.5"
   },
   "dependencies": {

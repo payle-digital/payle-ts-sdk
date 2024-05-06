@@ -24,12 +24,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const ProductsAPI = __importStar(require("./api/products"));
-class Payle {
+class Payle1 {
     constructor(apiKey) {
         this.products = {
-            create: (params) => ProductsAPI.create(params, this.apiKey)
+            create: (params) => ProductsAPI.create(params, this.apiKey),
+            list: (params) => ProductsAPI.list(params, this.apiKey),
+            retrieve: (id, params) => ProductsAPI.retrieve(id, params, this.apiKey),
+            update: (id, params) => ProductsAPI.update(id, params, this.apiKey),
+            delete: (id, params) => ProductsAPI.del(id, params, this.apiKey)
         };
         this.apiKey = apiKey;
     }
 }
-exports.default = Payle;
+exports.default = Payle1;
