@@ -1,20 +1,21 @@
-import { Payle } from 'payle';
 import * as ProductsAPI from './api/products';
+import axios from 'axios';
 
-class PayleSDK {
+class Payle {
   private apiKey: string;
 
   constructor(apiKey: string) {
     this.apiKey = apiKey;
+    axios.defaults.headers.common['Authorization'] = `Bearer ${apiKey}`
   }
 
   public products = {
-    create: (params: Payle.ProductCreateParams) => ProductsAPI.create(params, this.apiKey),
-    list: (params: Payle.ProductListParams) => ProductsAPI.list(params, this.apiKey),
-    retrieve: (id: string, params: Payle.ProductRetrieveParams) => ProductsAPI.retrieve(id, params, this.apiKey),
-    update: (id: string, params: Payle.ProductUpdateParams) => ProductsAPI.update(id, params, this.apiKey),
-    delete: (id: string, params: Payle.ProductDeleteParams) => ProductsAPI.del(id, params, this.apiKey)
+    create: ProductsAPI.create,
+    list: ProductsAPI.list,
+    retrieve: ProductsAPI.retrieve,
+    update: ProductsAPI.update,
+    delete: ProductsAPI.del
   };
 }
 
-export default PayleSDK;
+export default Payle;

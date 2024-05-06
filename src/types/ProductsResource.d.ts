@@ -10,7 +10,7 @@ declare module 'payle' {
 
         interface ProductListParams extends PaginationParams {
           active?: boolean;
-          created?: Stripe.RangeQueryParam | number;
+          created?: Payle.RangeQueryParam | number;
           expand?: Array<string>;
           ids?: Array<string>;
           type?: ProductListParams.Type;
@@ -52,7 +52,7 @@ declare module 'payle' {
 
             list(
               params?: ProductListParams,
-            ): ApiListPromise<Payle.Product>;
+            ): Promise<Payle.ApiList<Payle.Product>>;
 
             delete(
               id: string,
