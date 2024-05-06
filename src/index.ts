@@ -1,7 +1,7 @@
 import { Payle } from 'payle';
 import * as ProductsAPI from './api/products';
 
-class Payle1 {
+class PayleSDK {
   private apiKey: string;
 
   constructor(apiKey: string) {
@@ -17,4 +17,4 @@ class Payle1 {
   };
 }
 
-export default Payle1;
+export default PayleSDK;
