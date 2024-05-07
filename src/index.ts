@@ -6,7 +6,7 @@ class Payle {
 
   constructor(apiKey: string) {
     this.apiKey = apiKey;
-    axios.defaults.headers.common['Authorization'] = `Bearer ${apiKey}`
+    axios.defaults.headers.common['secret_key'] = apiKey
   }
 
   public products = {
