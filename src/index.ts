@@ -1,5 +1,5 @@
-import * as ProductsAPI from './api/products';
 import axios from 'axios';
+import * as ProductsAPI from './api/products';
 
 class Payle {
   private apiKey: string;
