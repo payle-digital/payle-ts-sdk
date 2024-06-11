@@ -2,9 +2,9 @@ declare module 'payle' {
   namespace Payle {
     export interface ApiList<T> {
       object: 'list';
-      data: Array<T>;
-      has_more: boolean;
       url: string;
+      has_more: boolean;
+      data: Array<T>;
     }
 
     export interface ApiSearchResult<T> {

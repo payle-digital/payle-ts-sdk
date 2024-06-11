@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Payle } from 'payle';
 
-const baseURL = 'http://localhost:3001';
+const baseURL = 'http://localhost:3001/v1';
 
 export async function create(params: Payle.ProductCreateParams): Promise<Payle.Product> {
   const response = await axios.post(`${baseURL}/products`, params);

@@ -10,11 +10,12 @@ declare module 'payle' {
             id: string;
             object: 'product';
             active: boolean;
-            created_at: Date;
+            created: Date;
             description: string | null;
             images: Array<string>;
+            livemode: boolean;
             name: string;
-            updated_at: Date;
+            updated: Date;
         }
     }
 }
