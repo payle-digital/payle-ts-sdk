@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as PaymentsAPI from './api/payments';
 import * as ProductsAPI from './api/products';
 
 class Payle {
@@ -16,6 +17,12 @@ class Payle {
     update: ProductsAPI.update,
     delete: ProductsAPI.del
   };
+
+  public payments = {
+    create: PaymentsAPI.create,
+    list: PaymentsAPI.list,
+    retrieve: PaymentsAPI.retrieve
+  }
 }
 
 export default Payle;

@@ -7,6 +7,7 @@ declare module 'payle' {
     constructor(apiKey: string);
 
     products: Payle.ProductsResource;
+    payments: Payle.PaymentsResource;
   }
 
   export default Payle;
