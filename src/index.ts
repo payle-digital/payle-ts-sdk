@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as CustomersAPI from './api/customers';
 import * as PaymentsAPI from './api/payments';
 import * as ProductsAPI from './api/products';
 
@@ -10,6 +11,20 @@ class Payle {
     axios.defaults.headers.common['api-key'] = this.apiKey
   }
 
+  public customers = {
+    create: CustomersAPI.create,
+    retrieve: CustomersAPI.retrieve,
+    update: CustomersAPI.update,
+    delete: CustomersAPI.del,
+    list: CustomersAPI.list
+  }
+
+  public payments = {
+    create: PaymentsAPI.create,
+    list: PaymentsAPI.list,
+    retrieve: PaymentsAPI.retrieve
+  }
+
   public products = {
     create: ProductsAPI.create,
     list: ProductsAPI.list,
@@ -17,12 +32,6 @@ class Payle {
     update: ProductsAPI.update,
     delete: ProductsAPI.del
   };
-
-  public payments = {
-    create: PaymentsAPI.create,
-    list: PaymentsAPI.list,
-    retrieve: PaymentsAPI.retrieve
-  }
 }
 
 export default Payle;
