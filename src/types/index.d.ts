@@ -4,6 +4,7 @@
 /// <reference path="./CustomersResource.d.ts" />
 /// <reference path="./Payments.d.ts" />
 /// <reference path="./PaymentsResource.d.ts" />
+/// <reference path="./lib.d.ts" />
 declare module 'payle' {
   export namespace Payle {}
 
