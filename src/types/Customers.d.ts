@@ -8,10 +8,10 @@ declare module 'payle' {
             livemode: boolean;
             name: string | null;
             phone: string | null;
-            cpfCnpj: string | null;
-            whatsAppNotificationEnabled: boolean;
-            smsNotificationEnabled: boolean;
-            emailNotificationEnabled: boolean;
+            cpf_cnpj: string | null;
+            whatsapp_notification_enabled: boolean;
+            sms_notification_enabled: boolean;
+            email_notification_enabled: boolean;
             updated: Date;
         }
 
