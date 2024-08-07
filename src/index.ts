@@ -25,6 +25,8 @@ class Payle {
     retrieve: PaymentsAPI.retrieve
   }
 
+  public paymentLinks = {}
+
   public products = {
     create: ProductsAPI.create,
     list: ProductsAPI.list,

@@ -5,6 +5,12 @@
 /// <reference path="./Payments.d.ts" />
 /// <reference path="./PaymentsResource.d.ts" />
 /// <reference path="./lib.d.ts" />
+/// <reference path="./shared.d.ts" />
+/// <reference path="./Charges.d.ts" />
+/// <reference path="./PaymentLinks.d.ts" />
+/// <reference path="../enums/Currency.d.ts" />
+/// <reference path="../enums/PaymentMethod.d.ts" />
+
 declare module 'payle' {
   export namespace Payle {}
 
