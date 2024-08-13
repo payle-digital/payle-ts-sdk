@@ -1,18 +1,29 @@
-import axios from 'axios';
-import * as CustomersAPI from './api/customers';
-import * as PaymentsAPI from './api/payments';
-import * as ProductsAPI from './api/products';
-import { Payle as PayleModule } from 'payle';
+import axios from 'axios'
+
+import * as BalanceAPI from './api/balance'
+import * as BankAccountAPI from './api/bankAccount'
+import * as CustomersAPI from './api/customers'
+import * as PaymentsAPI from './api/payments'
+import * as ProductsAPI from './api/products'
+import { Payle as PayleModule } from 'payle'
 
 class Payle {
-  private apiKey: string;
-  private baseURL: string;
+  private apiKey: string
+  private baseURL: string
 
   constructor(apiKey: string, options?: PayleModule.PayleConfig) {
-    this.apiKey = apiKey;
-    this.baseURL = options?.baseURL || 'https://api.payle.digital';
+    this.apiKey = apiKey
+    this.baseURL = options?.baseURL || 'https://api.payle.digital'
     axios.defaults.headers.common['api-key'] = this.apiKey
-    axios.defaults.baseURL = this.baseURL;
+    axios.defaults.baseURL = this.baseURL
+  }
+
+  public balance = {
+    retrieve: BalanceAPI.retrieve,
+  }
+
+  public bankAccount = {
+    retrieve: BankAccountAPI.retrieve,
   }
 
   public customers = {
@@ -20,13 +31,13 @@ class Payle {
     retrieve: CustomersAPI.retrieve,
     update: CustomersAPI.update,
     delete: CustomersAPI.del,
-    list: CustomersAPI.list
+    list: CustomersAPI.list,
   }
 
   public payments = {
     create: PaymentsAPI.create,
     list: PaymentsAPI.list,
-    retrieve: PaymentsAPI.retrieve
+    retrieve: PaymentsAPI.retrieve,
   }
 
   public paymentLinks = {}
@@ -36,8 +47,8 @@ class Payle {
     list: ProductsAPI.list,
     retrieve: ProductsAPI.retrieve,
     update: ProductsAPI.update,
-    delete: ProductsAPI.del
-  };
+    delete: ProductsAPI.del,
+  }
 }
 
-export default Payle;
+export default Payle

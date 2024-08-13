@@ -27,22 +27,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
+const BalanceAPI = __importStar(require("./api/balance"));
+const BankAccountAPI = __importStar(require("./api/bankAccount"));
 const CustomersAPI = __importStar(require("./api/customers"));
 const PaymentsAPI = __importStar(require("./api/payments"));
 const ProductsAPI = __importStar(require("./api/products"));
 class Payle {
     constructor(apiKey, options) {
+        this.balance = {
+            retrieve: BalanceAPI.retrieve,
+        };
+        this.bankAccount = {
+            retrieve: BankAccountAPI.retrieve,
+        };
         this.customers = {
             create: CustomersAPI.create,
             retrieve: CustomersAPI.retrieve,
             update: CustomersAPI.update,
             delete: CustomersAPI.del,
-            list: CustomersAPI.list
+            list: CustomersAPI.list,
         };
         this.payments = {
             create: PaymentsAPI.create,
             list: PaymentsAPI.list,
-            retrieve: PaymentsAPI.retrieve
+            retrieve: PaymentsAPI.retrieve,
         };
         this.paymentLinks = {};
         this.products = {
@@ -50,7 +58,7 @@ class Payle {
             list: ProductsAPI.list,
             retrieve: ProductsAPI.retrieve,
             update: ProductsAPI.update,
-            delete: ProductsAPI.del
+            delete: ProductsAPI.del,
         };
         this.apiKey = apiKey;
         this.baseURL = (options === null || options === void 0 ? void 0 : options.baseURL) || 'https://api.payle.digital';
