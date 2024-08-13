@@ -22,7 +22,7 @@ declare module 'payle' {
              * The CPF or CNPJ number of the customer.
              * This field is optional and can be set to `null` if not provided.
             */
-            cpfCnpj?: string | null;
+            cpf_cnpj?: string | null;
 
             /**
              * Whether WhatsApp notifications are enabled for the customer.
