@@ -14,10 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.list = exports.del = exports.update = exports.retrieve = exports.create = void 0;
 const axios_1 = __importDefault(require("axios"));
-const baseURL = 'http://localhost:3001';
 function create(params) {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield axios_1.default.post(`${baseURL}/v1/customers`, params);
+        const response = yield axios_1.default.post(`/v1/customers`, params);
         return response.data;
     });
 }
@@ -25,7 +24,7 @@ exports.create = create;
 function retrieve(id, params) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield axios_1.default.get(`${baseURL}/v1/customers/${id}?${params}`);
+            const response = yield axios_1.default.get(`/v1/customers/${id}?${params}`);
             return response.data;
         }
         catch (error) {
@@ -38,7 +37,7 @@ exports.retrieve = retrieve;
 function update(id, params) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield axios_1.default.patch(`${baseURL}/v1/customers/${id}`, params);
+            const response = yield axios_1.default.patch(`/v1/customers/${id}`, params);
             return response.data;
         }
         catch (error) {
@@ -51,7 +50,7 @@ exports.update = update;
 function del(id, params) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield axios_1.default.delete(`${baseURL}/v1/customers/${id}?${params}`);
+            const response = yield axios_1.default.delete(`/v1/customers/${id}?${params}`);
             return response.data;
         }
         catch (error) {
@@ -64,7 +63,7 @@ exports.del = del;
 function list(params) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield axios_1.default.get(`${baseURL}/v1/customers?${params}`);
+            const response = yield axios_1.default.get(`/v1/customers?${params}`);
             return response.data;
         }
         catch (error) {

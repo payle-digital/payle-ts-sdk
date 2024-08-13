@@ -31,7 +31,7 @@ const CustomersAPI = __importStar(require("./api/customers"));
 const PaymentsAPI = __importStar(require("./api/payments"));
 const ProductsAPI = __importStar(require("./api/products"));
 class Payle {
-    constructor(apiKey) {
+    constructor(apiKey, options) {
         this.customers = {
             create: CustomersAPI.create,
             retrieve: CustomersAPI.retrieve,
@@ -44,6 +44,7 @@ class Payle {
             list: PaymentsAPI.list,
             retrieve: PaymentsAPI.retrieve
         };
+        this.paymentLinks = {};
         this.products = {
             create: ProductsAPI.create,
             list: ProductsAPI.list,
@@ -52,7 +53,9 @@ class Payle {
             delete: ProductsAPI.del
         };
         this.apiKey = apiKey;
+        this.baseURL = (options === null || options === void 0 ? void 0 : options.baseURL) || 'https://api.payle.digital';
         axios_1.default.defaults.headers.common['api-key'] = this.apiKey;
+        axios_1.default.defaults.baseURL = this.baseURL;
     }
 }
 exports.default = Payle;

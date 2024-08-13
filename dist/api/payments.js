@@ -14,10 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.retrieve = exports.list = exports.create = void 0;
 const axios_1 = __importDefault(require("axios"));
-const baseURL = 'http://localhost:3001';
 function create(params) {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield axios_1.default.post(`${baseURL}/v1/payments`, params);
+        const response = yield axios_1.default.post(`/v1/payments`, params);
         return response.data;
     });
 }
@@ -25,7 +24,7 @@ exports.create = create;
 function list(params) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield axios_1.default.get(`${baseURL}/v1/payments?${params}`);
+            const response = yield axios_1.default.get(`/v1/payments?${params}`);
             return response.data;
         }
         catch (error) {
@@ -38,7 +37,7 @@ exports.list = list;
 function retrieve(id, params) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield axios_1.default.get(`${baseURL}/v1/payments/${id}?${params}`);
+            const response = yield axios_1.default.get(`/v1/payments/${id}?${params}`);
             return response.data;
         }
         catch (error) {
