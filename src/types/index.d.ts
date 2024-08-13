@@ -15,7 +15,7 @@ declare module 'payle' {
   export namespace Payle {}
 
   export class Payle {
-    constructor(apiKey: string);
+    constructor(apiKey: string, config?: Payle.PayleConfig);
 
     customers: Payle.CustomersResource;
     payments: Payle.PaymentsResource;

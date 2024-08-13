@@ -1,16 +1,14 @@
 import axios from 'axios';
 import { Payle } from 'payle';
 
-const baseURL = 'http://localhost:3001/v1';
-
 export async function create(params: Payle.ProductCreateParams): Promise<Payle.Product> {
-  const response = await axios.post(`${baseURL}/products`, params);
+  const response = await axios.post('/v1/products', params);
   return response.data;
 }
 
 export async function list(params: Payle.ProductListParams): Promise<Payle.ApiList<Payle.Product>> {
   try {
-    const response = await axios.get(`${baseURL}/products?${params}`);
+    const response = await axios.get(`/v1/products?${params}`);
     return response.data;
   } catch (error) {
     console.error('Error listing products:', error);
@@ -20,7 +18,7 @@ export async function list(params: Payle.ProductListParams): Promise<Payle.ApiLi
 
 export async function retrieve(id: string, params: Payle.ProductListParams): Promise<Payle.Product> {
   try {
-    const response = await axios.get(`${baseURL}/products/${id}?${params}`);
+    const response = await axios.get(`/v1/products/${id}?${params}`);
     return response.data;
   } catch (error) {
     console.error('Error retrieving product:', error);
@@ -30,7 +28,7 @@ export async function retrieve(id: string, params: Payle.ProductListParams): Pro
 
 export async function update(id: string, params: Payle.ProductUpdateParams): Promise<Payle.Product> {
   try {
-    const response = await axios.patch(`${baseURL}/products/${id}`, params);
+    const response = await axios.patch(`/v1/products/${id}`, params);
     return response.data;
   } catch (error) {
     console.error('Error updating product:', error);
@@ -40,7 +38,7 @@ export async function update(id: string, params: Payle.ProductUpdateParams): Pro
 
 export async function del(id: string, params: Payle.ProductDeleteParams): Promise<Payle.DeletedProduct>{
   try {
-    const response = await axios.delete(`${baseURL}/products/${id}?${params}`);
+    const response = await axios.delete(`/v1/products/${id}?${params}`);
     return response.data;
   } catch (error) {
     console.error('Error deleting product:', error);

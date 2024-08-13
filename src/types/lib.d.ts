@@ -15,5 +15,12 @@ declare module 'payle' {
       next_page: string | null;
       total_count?: number;
     }
+
+    export interface PayleConfig {
+      /**
+       * Specify the host to use for API Requests.
+      */
+      baseURL?: string;
+    }
   }
 }
