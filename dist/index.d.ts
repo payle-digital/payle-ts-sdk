@@ -1,10 +1,7 @@
 /// <reference path="../src/enums/Currency.d.ts" />
 /// <reference path="../src/enums/PaymentMethod.d.ts" />
 /// <reference path="../src/types/Account.d.ts" />
-/// <reference path="../src/types/Balance.d.ts" />
-/// <reference path="../src/types/BalanceResource.d.ts" />
-/// <reference path="../src/types/BankAccount.d.ts" />
-/// <reference path="../src/types/BankAccountResource.d.ts" />
+/// <reference path="../src/types/AccountResource.d.ts" />
 /// <reference path="../src/types/Charges.d.ts" />
 /// <reference path="../src/types/Customers.d.ts" />
 /// <reference path="../src/types/CustomersResource.d.ts" />
@@ -16,8 +13,7 @@
 /// <reference path="../src/types/lib.d.ts" />
 /// <reference path="../src/types/shared.d.ts" />
 /// <reference path="../src/types/index.d.ts" />
-import * as BalanceAPI from './api/balance';
-import * as BankAccountAPI from './api/bankAccount';
+import * as AccountAPI from './api/account';
 import * as CustomersAPI from './api/customers';
 import * as PaymentsAPI from './api/payments';
 import * as ProductsAPI from './api/products';
@@ -26,11 +22,11 @@ declare class Payle {
     private apiKey;
     private baseURL;
     constructor(apiKey: string, options?: PayleModule.PayleConfig);
-    balance: {
-        retrieve: typeof BalanceAPI.retrieve;
-    };
-    bankAccount: {
-        retrieve: typeof BankAccountAPI.retrieve;
+    account: {
+        retrieve: typeof AccountAPI.retrieve;
+        retrieveBalance: typeof AccountAPI.retrieveBalance;
+        retrieveFees: typeof AccountAPI.retrieveFees;
+        retrieveBankAccount: typeof AccountAPI.retrieveBankAccount;
     };
     customers: {
         create: typeof CustomersAPI.create;

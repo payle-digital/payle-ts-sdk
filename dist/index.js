@@ -27,18 +27,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
-const BalanceAPI = __importStar(require("./api/balance"));
-const BankAccountAPI = __importStar(require("./api/bankAccount"));
+const AccountAPI = __importStar(require("./api/account"));
 const CustomersAPI = __importStar(require("./api/customers"));
 const PaymentsAPI = __importStar(require("./api/payments"));
 const ProductsAPI = __importStar(require("./api/products"));
 class Payle {
     constructor(apiKey, options) {
-        this.balance = {
-            retrieve: BalanceAPI.retrieve,
-        };
-        this.bankAccount = {
-            retrieve: BankAccountAPI.retrieve,
+        this.account = {
+            retrieve: AccountAPI.retrieve,
+            retrieveBalance: AccountAPI.retrieveBalance,
+            retrieveFees: AccountAPI.retrieveFees,
+            retrieveBankAccount: AccountAPI.retrieveBankAccount,
         };
         this.customers = {
             create: CustomersAPI.create,

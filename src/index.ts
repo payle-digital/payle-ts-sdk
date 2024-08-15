@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-import * as BalanceAPI from './api/balance'
-import * as BankAccountAPI from './api/bankAccount'
+import * as AccountAPI from './api/account'
 import * as CustomersAPI from './api/customers'
 import * as PaymentsAPI from './api/payments'
 import * as ProductsAPI from './api/products'
@@ -18,12 +17,11 @@ class Payle {
     axios.defaults.baseURL = this.baseURL
   }
 
-  public balance = {
-    retrieve: BalanceAPI.retrieve,
-  }
-
-  public bankAccount = {
-    retrieve: BankAccountAPI.retrieve,
+  public account = {
+    retrieve: AccountAPI.retrieve,
+    retrieveBalance: AccountAPI.retrieveBalance,
+    retrieveFees: AccountAPI.retrieveFees,
+    retrieveBankAccount: AccountAPI.retrieveBankAccount,
   }
 
   public customers = {

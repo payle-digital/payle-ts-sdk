@@ -1,3 +1,5 @@
+/// <reference path="./Account.d.ts" />
+/// <reference path="./AccountResource.d.ts" />
 /// <reference path="./Products.d.ts" />
 /// <reference path="./ProductsResource.d.ts" />
 /// <reference path="./Customers.d.ts" />
@@ -8,10 +10,6 @@
 /// <reference path="./shared.d.ts" />
 /// <reference path="./Charges.d.ts" />
 /// <reference path="./PaymentLinks.d.ts" />
-/// <reference path="./BankAccount.d.ts" />
-/// <reference path="./BankAccountResource.d.ts" />
-/// <reference path="./Balance.d.ts" />
-/// <reference path="./BalanceResource.d.ts" />
 /// <reference path="../enums/Currency.d.ts" />
 /// <reference path="../enums/PaymentMethod.d.ts" />
 
@@ -20,8 +18,7 @@ declare module 'payle' {
 
   export class Payle {
     constructor(apiKey: string, config?: Payle.PayleConfig)
-    balance: Payle.BalanceResource
-    bankAccount: Payle.BankAccountResource
+    account: Payle.AccountResource
     customers: Payle.CustomersResource
     payments: Payle.PaymentsResource
     products: Payle.ProductsResource
