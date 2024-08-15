@@ -43,7 +43,7 @@ declare module 'payle' {
         email: {
           fixed_value: number
         }
-        whatsApp: {
+        whats_app: {
           fixed_value: number
         }
         sms: {
