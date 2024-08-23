@@ -19,7 +19,7 @@ declare module 'payle' {
         /**
          * Date when the payout will be available in the destination bank account.
          */
-        arrival_date: string
+        arrival_date: Date
 
         /**
          * Date when the payout was created.
