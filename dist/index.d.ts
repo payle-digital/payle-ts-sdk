@@ -8,16 +8,19 @@
 /// <reference path="../src/types/PaymentLinks.d.ts" />
 /// <reference path="../src/types/Payments.d.ts" />
 /// <reference path="../src/types/PaymentsResource.d.ts" />
+/// <reference path="../src/types/Payouts.d.ts" />
+/// <reference path="../src/types/PayoutsResource.d.ts" />
 /// <reference path="../src/types/Products.d.ts" />
 /// <reference path="../src/types/ProductsResource.d.ts" />
 /// <reference path="../src/types/lib.d.ts" />
 /// <reference path="../src/types/shared.d.ts" />
 /// <reference path="../src/types/index.d.ts" />
+import { Payle as PayleModule } from 'payle';
 import * as AccountAPI from './api/account';
 import * as CustomersAPI from './api/customers';
 import * as PaymentsAPI from './api/payments';
+import * as PayoutsAPI from './api/payouts';
 import * as ProductsAPI from './api/products';
-import { Payle as PayleModule } from 'payle';
 declare class Payle {
     private apiKey;
     private baseURL;
@@ -41,6 +44,10 @@ declare class Payle {
         retrieve: typeof PaymentsAPI.retrieve;
     };
     paymentLinks: {};
+    payouts: {
+        list: typeof PayoutsAPI.list;
+        retrieve: typeof PayoutsAPI.retrieve;
+    };
     products: {
         create: typeof ProductsAPI.create;
         list: typeof ProductsAPI.list;

@@ -6,6 +6,8 @@
 /// <reference path="./CustomersResource.d.ts" />
 /// <reference path="./Payments.d.ts" />
 /// <reference path="./PaymentsResource.d.ts" />
+/// <reference path="./Payouts.d.ts" />
+/// <reference path="./PayoutsResource.d.ts" />
 /// <reference path="./lib.d.ts" />
 /// <reference path="./shared.d.ts" />
 /// <reference path="./Charges.d.ts" />
@@ -21,6 +23,7 @@ declare module 'payle' {
     account: Payle.AccountResource
     customers: Payle.CustomersResource
     payments: Payle.PaymentsResource
+    payouts: Payle.PayoutsResource
     products: Payle.ProductsResource
   }
 

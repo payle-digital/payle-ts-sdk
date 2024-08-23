@@ -30,6 +30,7 @@ const axios_1 = __importDefault(require("axios"));
 const AccountAPI = __importStar(require("./api/account"));
 const CustomersAPI = __importStar(require("./api/customers"));
 const PaymentsAPI = __importStar(require("./api/payments"));
+const PayoutsAPI = __importStar(require("./api/payouts"));
 const ProductsAPI = __importStar(require("./api/products"));
 class Payle {
     constructor(apiKey, options) {
@@ -52,6 +53,10 @@ class Payle {
             retrieve: PaymentsAPI.retrieve,
         };
         this.paymentLinks = {};
+        this.payouts = {
+            list: PayoutsAPI.list,
+            retrieve: PayoutsAPI.retrieve,
+        };
         this.products = {
             create: ProductsAPI.create,
             list: ProductsAPI.list,

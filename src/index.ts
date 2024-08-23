@@ -1,10 +1,11 @@
 import axios from 'axios'
 
+import { Payle as PayleModule } from 'payle'
 import * as AccountAPI from './api/account'
 import * as CustomersAPI from './api/customers'
 import * as PaymentsAPI from './api/payments'
+import * as PayoutsAPI from './api/payouts'
 import * as ProductsAPI from './api/products'
-import { Payle as PayleModule } from 'payle'
 
 class Payle {
   private apiKey: string
@@ -39,6 +40,11 @@ class Payle {
   }
 
   public paymentLinks = {}
+
+  public payouts = {
+    list: PayoutsAPI.list,
+    retrieve: PayoutsAPI.retrieve,
+  }
 
   public products = {
     create: ProductsAPI.create,
