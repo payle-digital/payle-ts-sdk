@@ -1,6 +1,6 @@
 declare module 'payle' {
   export namespace Payle {
-    type ValidPayoutRelations = 'bank_account' | 'account'
+    type ValidPayoutRelations = 'destination_bank_account' | 'account'
 
     interface PayoutListParams extends PaginationParams {
       relations?: ValidPayoutRelations[]

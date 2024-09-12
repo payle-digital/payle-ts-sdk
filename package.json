@@ -1,6 +1,6 @@
 {
   "name": "payle",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Payle API wrapper",
   "main": "dist/index.js",
   "types": "src/types/index.d.ts",
