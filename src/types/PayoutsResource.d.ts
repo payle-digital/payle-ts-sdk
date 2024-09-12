@@ -1,14 +1,18 @@
 declare module 'payle' {
-    export namespace Payle {
-        interface PayoutListParams extends PaginationParams {}
+  export namespace Payle {
+    type ValidPayoutRelations = 'bank_account' | 'account'
 
-        interface PayoutRetrieveParams {
-            expand?: Array<string>
-        }
-
-        class PayoutsResource {
-            list(params?: PayoutListParams): Promise<Payle.ApiList<Payle.Payout>>
-            retrieve(id: string, params?: PayoutRetrieveParams): Promise<Payle.Payout>
-        }
+    interface PayoutListParams extends PaginationParams {
+      relations?: ValidPayoutRelations[]
     }
+
+    interface PayoutRetrieveParams {
+      relations?: ValidPayoutRelations[]
+    }
+
+    class PayoutsResource {
+      list(params?: PayoutListParams): Promise<Payle.ApiList<Payle.Payout>>
+      retrieve(id: string, params?: PayoutRetrieveParams): Promise<Payle.Payout>
+    }
+  }
 }
