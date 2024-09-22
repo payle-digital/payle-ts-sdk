@@ -39,6 +39,20 @@ declare module 'payle' {
        * This should be a valid date object indicating when the payment is due.
        */
       due_date: Date
+
+      card?: {
+        country: string
+        exp_month: number
+        exp_year: number
+        cvv: string
+        card_number: string
+      }
+
+      card_holder_info?: {
+        name: string
+        cpf_cnpj: string
+        postal_code: string
+      }
     }
 
     interface PaymentListParams extends PaginationParams {}
