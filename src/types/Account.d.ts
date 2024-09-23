@@ -49,12 +49,12 @@ declare module 'payle' {
         sms: {
           fixed_value: number
         }
-      },
+      }
       payout: {
-        fixed_value: number,
-        percentage: number,
-        days_to_receive: number,
-      },
+        fixed_value: number
+        percentage: number
+        days_to_receive: number
+      }
     }
 
     interface Balance {

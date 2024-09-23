@@ -7,11 +7,6 @@ declare module 'payle' {
       customer: string
 
       /**
-       * The type of payment: can be 'installment' for payments in parts or 'single' for one-time payments.
-       */
-      type: 'installment' | 'single'
-
-      /**
        * The total amount to be charged, in the smallest currency unit (e.g., cents for USD).
        */
       amount: number
@@ -40,14 +35,22 @@ declare module 'payle' {
        */
       due_date: Date
 
+      /*
+       * The card details for the payment.
+       * This should be an object containing the details of the card.
+       */
       card?: {
         country: string
-        exp_month: number
-        exp_year: number
+        exp_month: string
+        exp_year: string
         cvv: string
         card_number: string
       }
 
+      /**
+       * The card holder information for the payment.
+       * This should be an object containing the card holder information.
+       */
       card_holder_info?: {
         name: string
         cpf_cnpj: string
