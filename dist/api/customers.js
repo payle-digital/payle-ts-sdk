@@ -63,7 +63,17 @@ exports.del = del;
 function list(params) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield axios_1.default.get(`/v1/customers?${params}`);
+            const query = new URLSearchParams();
+            if (params.limit)
+                query.append('limit', params.limit.toString());
+            if (params.ending_before)
+                query.append('ending_before', params.ending_before);
+            if (params.starting_after)
+                query.append('starting_after', params.starting_after);
+            if (params.relations && params.relations.length > 0) {
+                query.append('relations', params.relations.join(','));
+            }
+            const response = yield axios_1.default.get(`/v1/customers?${query}`);
             return response.data;
         }
         catch (error) {

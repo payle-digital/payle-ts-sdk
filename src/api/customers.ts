@@ -51,7 +51,17 @@ export async function list(
   params: Payle.CustomerListParams,
 ): Promise<Payle.ApiList<Payle.Customer>> {
   try {
-    const response = await axios.get(`/v1/customers?${params}`)
+    const query = new URLSearchParams()
+    if (params.limit) query.append('limit', params.limit.toString())
+    if (params.ending_before) query.append('ending_before', params.ending_before)
+    if (params.starting_after)
+      query.append('starting_after', params.starting_after)
+
+    if (params.relations && params.relations.length > 0) {
+      query.append('relations', params.relations.join(','))
+    }
+
+    const response = await axios.get(`/v1/customers?${query}`)
     return response.data
   } catch (error) {
     console.error('Error listing customers:', error)
