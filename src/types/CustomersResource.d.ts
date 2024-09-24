@@ -38,6 +38,11 @@ declare module 'payle' {
        * Whether email notifications are enabled for the customer.
        */
       email_notification_enabled?: boolean
+
+      /**
+       * The payments associated with the customer.
+       */
+      payments?: Array<Payle.Payment>
     }
 
     type ValidCustomerRelations = 'payments'
