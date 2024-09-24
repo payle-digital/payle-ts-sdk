@@ -13,6 +13,10 @@ declare module 'payle' {
       sms_notification_enabled: boolean
       email_notification_enabled: boolean
       updated: Date
+      /**
+       * The payments associated with the customer.
+       */
+      payments?: Array<Payle.Payment>
     }
 
     interface DeletedCustomer {
