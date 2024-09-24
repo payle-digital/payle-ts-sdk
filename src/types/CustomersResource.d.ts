@@ -40,10 +40,14 @@ declare module 'payle' {
       email_notification_enabled?: boolean
     }
 
-    interface CustomerListParams extends PaginationParams {}
+    type ValidCustomerRelations = 'payments'
+
+    interface CustomerListParams extends PaginationParams {
+      relations?: ValidCustomerRelations[]
+    }
 
     interface CustomerRetrieveParams {
-      expand?: Array<string>
+      relations?: ValidCustomerRelations[]
     }
 
     interface CustomerUpdateParams extends CustomerCreateParams {}
