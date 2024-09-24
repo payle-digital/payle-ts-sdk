@@ -24,7 +24,11 @@ exports.create = create;
 function retrieve(id, params) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield axios_1.default.get(`/v1/customers/${id}?${params}`);
+            const query = new URLSearchParams();
+            if (params.relations && params.relations.length > 0) {
+                query.append('relations', params.relations.join(','));
+            }
+            const response = yield axios_1.default.get(`/v1/customers/${id}?${query}`);
             return response.data;
         }
         catch (error) {

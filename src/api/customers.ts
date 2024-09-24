@@ -13,7 +13,12 @@ export async function retrieve(
   params: Payle.CustomerRetrieveParams,
 ): Promise<Payle.Customer> {
   try {
-    const response = await axios.get(`/v1/customers/${id}?${params}`)
+    const query = new URLSearchParams()
+
+  if (params.relations && params.relations.length > 0) {
+    query.append('relations', params.relations.join(','))
+  }
+    const response = await axios.get(`/v1/customers/${id}?${query}`)
     return response.data
   } catch (error) {
     console.error('Error retrieving customer:', error)
