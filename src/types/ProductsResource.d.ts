@@ -1,9 +1,10 @@
 declare module 'payle' {
   export namespace Payle {
     interface ProductCreateParams {
-      active?: boolean
       name: string
       description?: string
+      active?: boolean
+      prices?: Array<Omit<PriceCreateParams, 'product_id'>>
       expand?: Array<string>
       images?: Array<string>
     }
@@ -13,12 +14,6 @@ declare module 'payle' {
       created?: Payle.RangeQueryParam | number
       expand?: Array<string>
       ids?: Array<string>
-      type?: ProductListParams.Type
-      url?: string
-    }
-
-    namespace ProductListParams {
-      type Type = 'good' | 'service'
     }
 
     interface ProductUpdateParams {

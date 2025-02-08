@@ -15,6 +15,7 @@ declare module 'payle' {
       images: Array<string>
       livemode: boolean
       name: string
+      prices: Array<Price>
       updated: Date
     }
   }
